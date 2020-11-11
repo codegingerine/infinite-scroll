@@ -10,6 +10,10 @@ export const TeaserStyled = styled.div`
   width: 30%;
   margin-bottom: 30px;
 
+  &:nth-of-type(3n+2) {
+    margin: 0 50px;
+  }
+
   &:hover {
     ${ImageBoxStyled} {
       opacity: 1;

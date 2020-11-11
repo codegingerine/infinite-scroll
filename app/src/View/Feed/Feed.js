@@ -4,27 +4,30 @@ import MainWrapper from "Components/MainWrapper";
 import List from "Components/List";
 import LoadMore from "Components/LoadMore";
 
+const API_URL = "development" ? "http://localhost:3000/posts" : "production" && "https://pastebin.pl/view/raw/e1658aa0";
+
 const Feed = () => {
   const [postsList, setPostsList] = useState([]);
   const [hasMorePosts, setHasMorePosts] = useState(true);
-  const [itemsPerPage, setItemsPerPage] = useState(50);
+  const [itemsPerPage, setItemsPerPage] = useState(12);
 
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = () => {
-    fetch(`https://pastebin.pl/view/raw/e1658aa0`)
+    fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
         setPostsList((prevState) => [
           ...prevState,
-          ...data.posts.filter(
+          ...data.filter(
             (_, i) =>
               i > prevState.length && i <= prevState.length + itemsPerPage
           ),
         ]);
       });
+      console.log("env ", process.env.NODE_ENV)
   };
 
   useEffect(() => {
