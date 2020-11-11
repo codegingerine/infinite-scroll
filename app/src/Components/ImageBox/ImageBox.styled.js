@@ -4,7 +4,7 @@ export const ImageBoxStyled = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 300px;
+  width: 100%;
   height: 190px;
   margin-bottom: 10px;
   overflow: hidden;

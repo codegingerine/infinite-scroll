@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "Utils/media";
 
 export const MainStyled = styled.main`
   position: relative;
@@ -9,16 +10,31 @@ export const MainStyled = styled.main`
   height: 100%;
   min-height: 100vh;
   width: 100%;
-  padding: 40px 0;
+  padding: 40px 20px;
   overflow: hidden;
   transition: all 0.2s ease;
+
+  ${media.tablet `
+    padding: 40px 0;
+  `}
 `;
 
 export const MainContainerStyled = styled.div`
-  width: 1000px;
+  width: 100%;
+  max-width: 300px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding: 20px 0;
+
+  ${media.tablet `
+    width: 952px;
+    max-width: none;
+  `}
+
+  ${media.desktop `
+    width: 1000px;
+  `}
 `;
 
 export const TitleWrapperStyled = styled.div`

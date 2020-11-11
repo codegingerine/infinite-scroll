@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { media } from "Utils/media";
 import ImageBox from "Components/ImageBox";
 
 export const ImageBoxStyled = styled(ImageBox)`
@@ -7,11 +8,26 @@ export const ImageBoxStyled = styled(ImageBox)`
 `;
 
 export const TeaserStyled = styled.div`
-  width: 30%;
+  width: 100%;
   margin-bottom: 30px;
+  overflow: hidden;
+  
+  ${media.tablet`
+    width: 32%;
+  `}
+
+  ${media.desktop`
+    width: 30%;
+  `}
 
   &:nth-of-type(3n+2) {
-    margin: 0 50px;
+    ${media.tablet `
+      margin: 0 2%;
+    `}
+
+    ${media.desktop `
+      margin: 0 5%;
+    `}
   }
 
   &:hover {
