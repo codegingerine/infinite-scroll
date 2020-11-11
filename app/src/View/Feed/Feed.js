@@ -1,10 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { DEVELOPMENT, PRODUCTION } from "Utils/helpers";
 import MainWrapper from "Components/MainWrapper";
 import List from "Components/List";
 import LoadMore from "Components/LoadMore";
 
-const API_URL = "development" ? "http://localhost:3000/posts" : "production" && "https://pastebin.pl/view/raw/e1658aa0";
+const API_URL = DEVELOPMENT ? "http://localhost:3000/posts" : PRODUCTION && "http://localhost:3000/posts";
 
 const Feed = () => {
   const [postsList, setPostsList] = useState([]);
@@ -27,7 +28,7 @@ const Feed = () => {
           ),
         ]);
       });
-      console.log("env ", process.env.NODE_ENV)
+      console.log("env: ", process.env.NODE_ENV)
   };
 
   useEffect(() => {
