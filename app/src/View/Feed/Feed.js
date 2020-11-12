@@ -41,8 +41,8 @@ const Feed = () => {
       <InfiniteScroll
         dataLength={postsList.length}
         next={fetchData}
-        hasMore={true}
-        loader={hasMorePosts && <LoadMore loadingTxt="Wczytuję artykuły..." />}
+        hasMore={hasMorePosts}
+        loader={<LoadMore loadingTxt="Wczytuję artykuły..." />}
       >
         <List listMapped={postsList} />
       </InfiniteScroll>
