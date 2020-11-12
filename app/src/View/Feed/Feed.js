@@ -5,7 +5,7 @@ import MainWrapper from "Components/MainWrapper";
 import List from "Components/List";
 import LoadMore from "Components/LoadMore";
 
-const API_URL = DEVELOPMENT ? "http://localhost:3000/posts" : PRODUCTION && "http://localhost:3000/posts";
+const API_URL = DEVELOPMENT ? "http://localhost:3000/base" : PRODUCTION && "https://pastebin.pl/view/raw/e1658aa0";
 
 const Feed = () => {
   const [postsList, setPostsList] = useState([]);
@@ -22,7 +22,7 @@ const Feed = () => {
       .then((data) => {
         setPostsList((prevState) => [
           ...prevState,
-          ...data.filter(
+          ...data.posts.filter(
             (_, i) =>
               i > prevState.length && i <= prevState.length + itemsPerPage
           ),
